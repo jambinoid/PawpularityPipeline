@@ -89,7 +89,7 @@ class PawpularityDatasetFactory:
                 'Sync up using tools/load_dataset.py')
 
         # Read data
-        df_train = pd.read_csv(os.path.join(self._DATASET_DIR, 'train.csv'), usecols=(0, 13), nrows=100)
+        df_train = pd.read_csv(os.path.join(self._DATASET_DIR, 'train.csv'), usecols=(0, 13))
         df_train.Id = df_train.Id.apply(lambda x: os.path.join(self._DATASET_DIR, 'train', x + '.jpg'))
 
         # Split to train and val datasets
