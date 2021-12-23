@@ -1,0 +1,37 @@
+model:
+  name: EfficientNet
+  backbone: B0
+  input_height: 240
+  input_width: 240
+
+optimizer:
+  name: Adam
+
+scheduler:
+  name: const
+  lr: 0.0001
+
+loss: MeanSquaredError
+metric: RootMeanSquaredError
+
+train_dataset:
+  batch_size: 64
+  val_split: 0.2
+
+test_dataset:
+  batch_size: 64
+
+preprocessor:
+  resize
+
+augmentations:
+  augment_v1
+
+train:
+  epochs: 100
+  verbose: 2
+  use_multiprocessing: True
+
+mlflow_tracking_uri: <path_to_mlruns>
+
+seed: 21
